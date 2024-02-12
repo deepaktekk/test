@@ -1,0 +1,33 @@
+name: Cloud Assyst Middleware CICD buid
+
+on:
+  push:
+    #paths: [ "src/middleware/**" ]
+    branches: [ "main" ]
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Run tests
+      run: |
+        cd "src/microservices/notifications/"
+        npm run test
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      env:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: deepaktekk/test         
