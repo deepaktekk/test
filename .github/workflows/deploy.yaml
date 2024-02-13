@@ -25,14 +25,9 @@ jobs:
     - name: Run tests
       run: |
         npm run test
-    - name: Generate Report
-      run: |
-        pip install codecov
-        pip install pytest-cov
-        pytest --cov=./ --cov-report=xml
-        codecov    
+        
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
       env:
-        token: CODECOV_TOKEN=bb2f5e25-c2b5-4120-a855-88000354ee04
-        slug: deepaktekk/test         
+        CODECOV_TOKEN: bb2f5e25-c2b5-4120-a855-88000354ee04
+        slug: deepaktekk/test
