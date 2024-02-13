@@ -28,5 +28,5 @@ jobs:
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
       env:
-        token: bb2f5e25-c2b5-4120-a855-88000354ee04
+        token: CODECOV_TOKEN=bb2f5e25-c2b5-4120-a855-88000354ee04
         slug: deepaktekk/test         
